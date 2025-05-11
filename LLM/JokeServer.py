@@ -1,11 +1,12 @@
 from flask import Flask, jsonify
+from jokes import GenerateJoke
 
 app = Flask(__name__)
 
 @app.route('/joke', methods=['GET'])
 def PostJoke():
     try:
-        joke = "This is a joke"
+        joke = GenerateJoke()
         print("Generated Joke:", joke)
         return jsonify({'fikra': joke})
     except Exception as e:
